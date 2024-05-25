@@ -1,7 +1,5 @@
 #include "game_state.h"
 
-const int FPS_VALUES[] = {30, 60, 75, 90, 120, 144, 160, 165, 240, 300};
-
 double GameState::tick()
 {
     std::chrono::nanoseconds current_tick = std::chrono::system_clock::now().time_since_epoch();

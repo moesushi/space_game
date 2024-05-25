@@ -45,7 +45,7 @@ void Planet::update(double dt)
         radian += diff;
 }
 
-void Planet::draw(double dt) const
+void Planet::draw() const
 {
     orbit();
 
@@ -140,12 +140,10 @@ void update_planets(GameState &state, std::vector<Planet> &planets, const circle
     }
 }
 
-void draw_planets(double dt, const std::vector<Planet> &planets)
+void draw_planets(const std::vector<Planet> &planets)
 {
     for (const Planet &planet : planets)
-    {
-        planet.draw(dt);
-    }
+        planet.draw();
 }
 
 std::vector<Planet> generate_planets()

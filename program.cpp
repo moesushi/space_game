@@ -8,6 +8,11 @@
 #include <deque>
 #include <vector>
 
+/**
+ * Updates and draws a lingering trail behind the player
+ * 
+ * @param trail A reference to a deque of points, to store the trail points
+ */
 void update_and_draw_trail(std::deque<point_2d> &trail)
 {
     for (const point_2d &point : trail)
@@ -78,7 +83,7 @@ int main()
         circle main = circle_at(screen_center(), 20);
 
         update_planets(state, planets, main);
-        draw_planets(state.get_dt(), planets);
+        draw_planets(planets);
 
         fill_circle(COLOR_GREEN, main);
 

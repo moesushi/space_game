@@ -1,7 +1,7 @@
 #include "ui.h"
 #include <cmath>
 
-int hud_scale = 2;
+int hud_scale = 1;
 
 void draw_hud(const GameState &state, const std::vector<Planet> &planets)
 {
@@ -18,10 +18,14 @@ void draw_hud(const GameState &state, const std::vector<Planet> &planets)
             probed += 1;
     }
 
+    int acceleration = round(vector_magnitude(state.calculate_acceleration()) * 100 / (ACCEL_MULT * ACCEL_RAW_MAX));
+    if (!state.is_moving())
+        acceleration = 0;
+
     vector<string> hud_text {
         "Position: " + point_to_string(screen_center()),
         "Velocity: " + std::to_string(vector_magnitude(state.velocity)),
-        "Acceleration: " + std::to_string(int(round(vector_magnitude(state.calculate_acceleration()) * 100 / (ACCEL_MULT * ACCEL_RAW_MAX)))) + "%",
+        "Acceleration: " + std::to_string(acceleration) + "%",
         "Planets: " + std::to_string(probed) + "/" + std::to_string(planets.size()),
     };
 

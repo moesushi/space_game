@@ -27,7 +27,7 @@ int main()
 
     load_font("default", "RobotoMono.ttf");
 
-    open_window("Lost In Space", 800, 800);
+    open_window("Space game", 800, 800);
     current_window_toggle_fullscreen();
     display d = display_details(0);
     int x = display_width(d);
@@ -67,9 +67,9 @@ int main()
             }
         }
 
-        state.update_velocity();
-
         clear_screen(rgb_color(10, 10, 10));
+
+        state.update_velocity();
 
         draw_grid();
         update_and_draw_trail(trail);

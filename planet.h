@@ -79,7 +79,7 @@ public:
  * 
  * @param state The current game state
  * @param planets The vector of planets
- * @param circle
+ * @param main The player's main circle in the middle of the screen
  */
 void update_planets(GameState &state, std::vector<Planet> &planets, const circle &main);
 
